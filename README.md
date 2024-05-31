@@ -54,17 +54,16 @@ La eliminación gaussiana es un método utilizado en álgebra lineal para resolv
    
 <h5> <font font face = "arial"> <b> <i> Ejemplo 1: </i> </b> </h5>
 
-package Eliminacion_Gaussiana;
+    package Eliminacion_Gaussiana;
 
+    public class ejercicio1 {
 
-public class Ejercicio1 {
-
-      public static void main(String[] args) {
-        int n = 3; // Número de incógnitas
+    public static void main(String[] args) {
+        int n = 3;
         double[][] matrix = {
-                {2.0, 1.0, -1.0, 8.0},
-                {-3.0, -1.0, 2.0, -11.0},
-                {-2.0, 1.0, 2.0, -3.0}
+                {3.0, -0.1, -0.2, 7.85},
+                {0.1, 7.0, -0.3, -19.3},
+                {0.3, -0.2, 10.0, 71.4}
         };
         double[] result = Eliminacion(matrix, n);
         for (int i = 0; i < n; i++) {
@@ -92,228 +91,15 @@ public class Ejercicio1 {
         }
 
         return result;
-    }}
+    }
+    }
 
 
-![1](https://github.com/Hante990/Tema-3/assets/107586879/adcd5200-7d62-47ac-834b-378bfeeb70ac)
+
+![Captura de pantalla 2024-05-30 230412](https://github.com/AntonioGuerrer0/Problemario_TEMA_3/assets/161759650/9e71a232-e654-43b5-b365-b490ccc00c04)
 
 
       
-<h5> <font font face = "arial"> <b> <i> Ejemplo 2: </i> </b> </h5>
-package Eliminacion_Gaussiana;
-
-
-public class Ejercicio2 {
-
-      public static void main(String[] args) {
-        int n = 3; // Número de incógnitas
-        double[][] matrix = {
-                {10, 4.0, -1.0, 8.0},
-                {-7.0, -1.0, 8.0, -11.0},
-                {6.0, 14.0, 0.0, -3.0}
-        };
-        double[] result = Eliminacion(matrix, n);
-        for (int i = 0; i < n; i++) {
-            System.out.println("x[" + i + "] = " + result[i]);
-        }
-    }
-
-    public static double[] Eliminacion(double[][] matrix, int n) {
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                double factor = matrix[j][i] / matrix[i][i];
-                for (int k = i; k < n + 1; k++) {
-                    matrix[j][k] -= factor * matrix[i][k];
-                }
-            }
-        }
-
-        double[] result = new double[n];
-        for (int i = n - 1; i >= 0; i--) {
-            result[i] = matrix[i][n];
-            for (int j = i + 1; j < n; j++) {
-                result[i] -= matrix[i][j] * result[j];
-            }
-            result[i] /= matrix[i][i];
-        }
-
-        return result;
-    }}
-
-
-
-![2](https://github.com/Hante990/Tema-3/assets/107586879/99caa84e-e57b-49e4-88f6-17c09123c868)
-
-
-    
-<h5> <font font face = "arial"> <b> <i> Ejemplo 3: </i> </b> </h5>
-package Eliminacion_Gaussiana;
-
-
-
-public class Ejercicio3 {
-   public static void main(String[] args) {
-        
-        int n = 3; // Número de incógnitas
-        
-        double[][] matrix = {
-                
-                {15, 2.0, 6.0, -8.0},
-                
-                {-8.0, -5.0, -8.0, 1.0},
-        
-                {-6.0, 3.0, 5.0, 13.0}
-        
-        };
-        
-        double[] result = Eliminacion(matrix, n);
-        
-        for (int i = 0; i < n; i++) {
-        
-            System.out.println("x[" + i + "] = " + result[i]);
-       
-        }
-   
-    }
-
-    public static double[] Eliminacion(double[][] matrix, int n) {
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                double factor = matrix[j][i] / matrix[i][i];
-                for (int k = i; k < n + 1; k++) {
-                    matrix[j][k] -= factor * matrix[i][k];
-                }
-            }
-        }
-
-        double[] result = new double[n];
-        for (int i = n - 1; i >= 0; i--) {
-            result[i] = matrix[i][n];
-            for (int j = i + 1; j < n; j++) {
-                result[i] -= matrix[i][j] * result[j];
-            }
-            result[i] /= matrix[i][i];
-        }
-
-        return result;
-    }}
-
-
-![3](https://github.com/Hante990/Tema-3/assets/107586879/66a42f0f-9a07-48f3-ac86-6d47d6ce41eb)
-
-
-    
-<h5> <font font face = "arial"> <b> <i> Ejemplo 4: </i> </b> </h5>
-package Eliminacion_Gaussiana;
-
-
-public class Ejercicio4 {
-   public static void main(String[] args) {
-        
-        int n = 3; // Número de incógnitas
-       
-        double[][] matrix = {
-                
-                {-8, -5.0, 7.0, 22.0},
-                
-                {4.0, 1.0, -9.0, 21.0},
-        
-                {-12.0, -14.0, 4.0, -3.0}
-        
-        };
-        
-        double[] result = Eliminacion(matrix, n);
-        
-        for (int i = 0; i < n; i++) {
-        
-            System.out.println("x[" + i + "] = " + result[i]);
-    
-        }
-   
-    }
-
-    public static double[] Eliminacion(double[][] matrix, int n) {
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                double factor = matrix[j][i] / matrix[i][i];
-                for (int k = i; k < n + 1; k++) {
-                    matrix[j][k] -= factor * matrix[i][k];
-                }
-            }
-        }
-
-        double[] result = new double[n];
-        for (int i = n - 1; i >= 0; i--) {
-            result[i] = matrix[i][n];
-            for (int j = i + 1; j < n; j++) {
-                result[i] -= matrix[i][j] * result[j];
-            }
-            result[i] /= matrix[i][i];
-        }
-
-        return result;
-    }}
-
-
-![4](https://github.com/Hante990/Tema-3/assets/107586879/fdcd0fb1-38e5-47f9-9989-bfafd2fbb262)
-
-
-    
-<h5> <font font face = "arial"> <b> <i> Ejemplo 5: </i> </b> </h5>
-package Eliminacion_Gaussiana;
-
-
-public class Ejercicio5 {
-   public static void main(String[] args) {
-        
-        int n = 3; // Número de incógnitas
-        
-        double[][] matrix = {
-                
-                {17, 14.0, -15.0, 18.0},
-                
-                {-7.0, 21.0, 8.0, -21.0},
-        
-                {16.0, 4.0, 10.0, 3.0}
-        
-        };
-        
-        double[] result = Eliminacion(matrix, n);
-        
-        for (int i = 0; i < n; i++) {
-        
-            System.out.println("x[" + i + "] = " + result[i]);
-    
-        }
-   
-    }
-
-    public static double[] Eliminacion(double[][] matrix, int n) {
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                double factor = matrix[j][i] / matrix[i][i];
-                for (int k = i; k < n + 1; k++) {
-                    matrix[j][k] -= factor * matrix[i][k];
-                }
-            }
-        }
-
-        double[] result = new double[n];
-        for (int i = n - 1; i >= 0; i--) {
-            result[i] = matrix[i][n];
-            for (int j = i + 1; j < n; j++) {
-                result[i] -= matrix[i][j] * result[j];
-            }
-            result[i] /= matrix[i][i];
-        }
-
-        return result;
-    }}
-
-
-
-![5](https://github.com/Hante990/Tema-3/assets/107586879/15945e2b-010f-4498-b5a2-fc9a45620ebf)
-
 
 
 <h2 align = "center"> <font font face = "forte"> <a name="Gauss">  2.- Gauss-Jordan </h2></a>
@@ -331,204 +117,57 @@ El método de Gauss-Jordan es una variante del método de eliminación gaussiana
    
 <h5> <font font face = "arial"> <b> <i> Ejemplo 1: </i> </b> </h5>
 
-package com.mycompany.gauss.jordan;
 
-public class GaussJordan {
-
-    public static void main(String[] args) {
-       System.out.println("GAUSS-JORDAN");
-        double[][] matriz = 
-        {   {4,2,-2,1},
-            {10,4,4,-4},
-            {6,2,2,5}    };
-        double[][] resultados = operaciones(matriz);
-        Resultados(resultados);
-    }
-    public static double[][] operaciones(double[][] matriz) {
-        int fila = matriz.length;
-        int columna = matriz[0].length;
-        for (int i = 0; i < fila; i++) {
-            double pivote = matriz[i][i];
-            for (int j = i + 1; j < columna; j++) {
-                matriz[i][j] /= pivote;
-            }
-            matriz[i][i] = 1;
-            for (int j = 0; j < fila; j++) {
-                if (i != j) {
-                    double epala = matriz[j][i];
-                    for (int k = i; k < columna; k++) {
-                        matriz[j][k] -= epala * matriz[i][k];
-                    }
-                }
-            }
-        }
-        return matriz;
-    }
-    public static void Resultados(double[][] matriz) {
-        System.out.println("Los resultados soooon: ");
-        System.out.println("X = " + matriz[0][3] + " :)");
-        System.out.println("Y = " + matriz[1][3] + " :)");
-        System.out.println("Y = " + matriz[2][3] + " :)");
-    }}
-
-
-
-![1](https://github.com/Hante990/Tema-3/assets/107586879/dfa61392-6b67-4e1f-b58e-dc3cb3e00b85)
-
-   
+    package Gauss_Jordan;
     
-<h5> <font font face = "arial"> <b> <i> Ejemplo 2: </i> </b> </h5>
-package com.mycompany.gauss.jordan3;
-
-import java.util.Scanner;
-
-public class GaussJordan3 {
-
-    public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-      
-        System.out.println("Ingrese el tamaño de la matriz cuadrada (n x n): ");
-        int n = scanner.nextInt();
-        
-        double[][] matriz = new double[n][n+1];
-        
-        System.out.println("Ingrese los elementos de la matriz extendida (separados por espacios y por fila): ");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n+1; j++) {
-                matriz[i][j] = scanner.nextDouble();
-            }
-        }
-        
-        double[][] resultados = operaciones(matriz);
-        Resultados(resultados);
-        
-        scanner.close();
-    }
-
-    public static double[][] operaciones(double[][] matriz) {
-        int fila = matriz.length;
-        int columna = matriz[0].length;
-        for (int i = 0; i < fila; i++) {
-            double pivote = matriz[i][i];
-            for (int j = i + 1; j < columna; j++) {
-                matriz[i][j] /= pivote;
-            }
-            matriz[i][i] = 1;
-            for (int j = 0; j < fila; j++) {
-                if (i != j) {
-                    double epala = matriz[j][i];
-                    for (int k = i; k < columna; k++) {
-                        matriz[j][k] -= epala * matriz[i][k];
-                    }
-                }
-            }
-        }
-        return matriz;
-    }
-
-    public static void Resultados(double[][] matriz) {
-        System.out.println("Los resultados son: ");
-        for (int i = 0; i < matriz.length; i++) {
-            System.out.println((char)('X' + i) + " = " + matriz[i][matriz[i].length - 1]);
-        }
-    }}
-
-
-![2-1](https://github.com/Hante990/Tema-3/assets/107586879/9f2e75da-ccd4-46f8-8ce8-13d6413f674a)
-
-
+    /**
+     *
+     * @author tono_
+     */
+    public class ejercicio1 {
     
-<h5> <font font face = "arial"> <b> <i> Ejemplo 3: </i> </b> </h5>
-package com.mycompany.gauss.jordan4;
-
-public class GaussJordan4 {
-
-    public static void main(String[] args) {
-        System.out.println("GAUSS-JORDAN");
-        double[][] matriz = 
-        {   {4,-2,2,1},
-            {10,4,4,-4},
-            {3,1,1,5}    };
-        double[][] resultados = operaciones(matriz);
-        Resultados(resultados);
-    }
-    public static double[][] operaciones(double[][] matriz) {
-        int fila = matriz.length;
-        int columna = matriz[0].length;
-        for (int i = 0; i < fila; i++) {
-            double pivote = matriz[i][i];
-            for (int j = i + 1; j < columna; j++) {
-                matriz[i][j] /= pivote;
-            }
-            matriz[i][i] = 1;
-            for (int j = 0; j < fila; j++) {
-                if (i != j) {
-                    double epala = matriz[j][i];
-                    for (int k = i; k < columna; k++) {
-                        matriz[j][k] -= epala * matriz[i][k];
-                    }
-                }
-            }
+       
+        public static void main(String[] args) {
+           System.out.println("GAUSS-JORDAN");
+            double[][] matriz = 
+            {   {3, -1, 2, 5},
+                {2, 1, 1, 7},
+                {1, 3, -2, 4} };
+            double[][] resultados = operaciones(matriz);
+            Resultados(resultados);
         }
-        return matriz;
-    }
-    public static void Resultados(double[][] matriz) {
-        System.out.println("Los resultados soooon: ");
-        System.out.println("X = " + matriz[0][3] + " :)");
-        System.out.println("Y = " + matriz[1][3] + " :)");
-        System.out.println("Y = " + matriz[2][3] + " :)");
-    }}
-
-
-
-![2-2](https://github.com/Hante990/Tema-3/assets/107586879/0fd5353d-3a28-49a8-ae74-912cc342b4c6)
-
-
     
-<h5> <font font face = "arial"> <b> <i> Ejemplo 4: </i> </b> </h5>
-package com.mycompany.gauss_jordan;
-
-public class Gauss_jordan {
-
-    public static void main(String[] args) {
-        System.out.println("GAUSS-JORDAN");
-        double[][] matriz = 
-        {   {2,1,-1,1},
-            {5,2,2,-4},
-            {3,1,1,5}    };
-        double[][] resultados = operaciones(matriz);
-        Resultados(resultados);
-    }
-    public static double[][] operaciones(double[][] matriz) {
-        int fila = matriz.length;
-        int columna = matriz[0].length;
-        for (int i = 0; i < fila; i++) {
-            double pivote = matriz[i][i];
-            for (int j = i + 1; j < columna; j++) {
-                matriz[i][j] /= pivote;
-            }
-            matriz[i][i] = 1;
-            for (int j = 0; j < fila; j++) {
-                if (i != j) {
-                    double epala = matriz[j][i];
-                    for (int k = i; k < columna; k++) {
-                        matriz[j][k] -= epala * matriz[i][k];
+        public static double[][] operaciones(double[][] matriz) {
+            int fila = matriz.length;
+            int columna = matriz[0].length;
+            for (int i = 0; i < fila; i++) {
+                double pivote = matriz[i][i];
+                for (int j = i + 1; j < columna; j++) {
+                    matriz[i][j] /= pivote;
+                }
+                matriz[i][i] = 1;
+                for (int j = 0; j < fila; j++) {
+                    if (i != j) {
+                        double epala = matriz[j][i];
+                        for (int k = i; k < columna; k++) {
+                            matriz[j][k] -= epala * matriz[i][k];
+                        }
                     }
                 }
             }
+            return matriz;
         }
-        return matriz;
+    
+        public static void Resultados(double[][] matriz) {
+            System.out.println("Los resultados son: ");
+            System.out.println("X = " + matriz[0][3]);
+            System.out.println("Y = " + matriz[1][3]);
+            System.out.println("Z = " + matriz[2][3]);
+        }
     }
-    public static void Resultados(double[][] matriz) {
-        System.out.println("Los resultados soooon: ");
-        System.out.println("X = " + matriz[0][3] + " :)");
-        System.out.println("Y = " + matriz[1][3] + " :)");
-        System.out.println("Y = " + matriz[2][3] + " :)");
-    }}
 
 
-
-![2-4](https://github.com/Hante990/Tema-3/assets/107586879/5597f8c7-f6ee-4cae-8587-9286ec540628)
+![Captura de pantalla 2024-05-30 230610](https://github.com/AntonioGuerrer0/Problemario_TEMA_3/assets/161759650/2e6dadab-2acd-4e4d-85d3-2e7e66ea4e44)
 
 
     
@@ -553,311 +192,74 @@ El método de Gauss-Seidel es una técnica iterativa utilizada para resolver sis
    
 <h5> <font font face = "arial"> <b> <i> Ejemplo 1: </i> </b> </h5>
 
-package gausseseidel;
-
-public class GausseSeidel1 {
-
-    public static void main(String[] args) {
+   
+    package Seidel;
+    
+    /**
+     *
+     * @author tono_
+     */
+    public class ejercicio1 {
+    
+        /**
+         * @param args the command line arguments
+         */
+        public static void main(String[] args) {
         double[][] A = {
-                {4.0, -1.0, 0.0},
-                {-1.0, 4.0, -1.0},
-                {0.0, -1.0, 4.0}
-        };
-        double[] b = {1, -4,5};
-        double[] x = gaussSeidel(A, b);
-        for (int i = 0; i < x.length; i++) {
-            System.out.println("x[" + i + "] = " + x[i]);
+                    {3.0, -0.1, -0.2},
+                    {0.1, 7.0, -0.3},
+                    {0.3, -0.2, 10.0}
+            };
+            double[] b = {7.85, -19.3, 71.4};
+            double[] x = gaussSeidel(A, b);
+            for (int i = 0; i < x.length; i++) {
+                System.out.println("x[" + i + "] = " + x[i]);
+            }
+            
+            System.out.println("Me da ese redondeo por la tolerancia de los puntos decimales. ");
+    
         }
-        
-        System.out.println("Me da ese redondeo por la tolerancia de los puntos decimales. ");
-
-    }
-
-    public static double[] gaussSeidel(double[][] A, double[] b) {
-        int n = A.length;
-        double[] x = new double[n];
-        double[] newX = new double[n];
-        int max = 100;
-        double epsilon = 1e-50;
-
-        for (int iter = 0; iter < max; iter++) {
-            for (int i = 0; i < n; i++) {
-                newX[i] = b[i];
-                for (int j = 0; j < n; j++) {
-                    if (j != i) {
-                        newX[i] -= A[i][j] * x[j];
+    
+        public static double[] gaussSeidel(double[][] A, double[] b) {
+            int n = A.length;
+            double[] x = new double[n];
+            double[] newX = new double[n];
+            int max = 100;
+            double epsilon = 1e-10;
+    
+            for (int iter = 0; iter < max; iter++) {
+                for (int i = 0; i < n; i++) {
+                    newX[i] = b[i];
+                    for (int j = 0; j < n; j++) {
+                        if (j != i) {
+                            newX[i] -= A[i][j] * x[j];
+                        }
+                    }
+                    newX[i] /= A[i][i];
+                }
+    
+                boolean stop = true;
+                for (int i = 0; i < n; i++) {
+                    if (Math.abs(newX[i] - x[i]) > epsilon) {
+                        stop = false;
+                        break;
                     }
                 }
-                newX[i] /= A[i][i];
-            }
-
-            boolean stop = true;
-            for (int i = 0; i < n; i++) {
-                if (Math.abs(newX[i] - x[i]) > epsilon) {
-                    stop = false;
+    
+                if (stop) {
                     break;
                 }
+    
+                System.arraycopy(newX, 0, x, 0, n);
             }
-
-            if (stop) {
-                break;
-            }
-
-            System.arraycopy(newX, 0, x, 0, n);
-           
+            return x;
         }
-        return x;
-    }}
+    }
+![Captura de pantalla 2024-05-30 230740](https://github.com/AntonioGuerrer0/Problemario_TEMA_3/assets/161759650/df17d8f7-4d84-4434-920e-ad37743069b2)
 
-
-![e1](https://github.com/Hante990/Tema-3/assets/107586879/e8ae6a06-3793-4c18-a150-9393cfcb946a)
 
 
     
-<h5> <font font face = "arial"> <b> <i> Ejemplo 2: </i> </b> </h5>
-package gausseseidel;
-
-public class GausseSeidel2 {
-
-    public static void main(String[] args) {
-        double[][] A = {
-            {2, 1, -1},
-            {5, 2, 2},
-            {3, 1, 1}
-        };
-        double[] b = {1, -4,5};
-        double[] x = gaussSeidel(A, b);
-        for (int i = 0; i < x.length; i++) {
-            System.out.println("x[" + i + "] = " + x[i]);
-        }
-
-    }
-
-    public static double[] gaussSeidel(double[][] A, double[] b) {
-        int n = A.length;
-        double[] x = new double[n];
-        double[] newX = new double[n];
-        int max = 100;
-        double epsilon = 1e-50;
-
-        for (int iter = 0; iter < max; iter++) {
-            for (int i = 0; i < n; i++) {
-                newX[i] = b[i];
-                for (int j = 0; j < n; j++) {
-                    if (j != i) {
-                        newX[i] -= A[i][j] * x[j];
-                    }
-                }
-                newX[i] /= A[i][i];
-            }
-
-            boolean stop = true;
-            for (int i = 0; i < n; i++) {
-                if (Math.abs(newX[i] - x[i]) > epsilon) {
-                    stop = false;
-                    break;
-                }
-            }
-
-            if (stop) {
-                break;
-            }
-
-            System.arraycopy(newX, 0, x, 0, n);
-           
-        }
-        return x;
-    }}
-
-
-
-![e2](https://github.com/Hante990/Tema-3/assets/107586879/8513a426-a403-4018-bf01-6889f991e930)
-
-
-    
-
-<h5> <font font face = "arial"> <b> <i> Ejemplo 3: </i> </b> </h5>
-package gausseseidel;
-
-public class GausseSeidel3 {
-
-    public static void main(String[] args) {
-        double[][] A = {
-            {5, 7, 1},
-            {6, 4, 2},
-            {2, 3, 1}
-        };
-        double[] b = {4, 1,3};
-        double[] x = gaussSeidel(A, b);
-        for (int i = 0; i < x.length; i++) {
-            System.out.println("x[" + i + "] = " + x[i]);
-        }
-
-    }
-
-    public static double[] gaussSeidel(double[][] A, double[] b) {
-        int n = A.length;
-        double[] x = new double[n];
-        double[] newX = new double[n];
-        int max = 100;
-        double epsilon = 1e-50;
-
-        for (int iter = 0; iter < max; iter++) {
-            for (int i = 0; i < n; i++) {
-                newX[i] = b[i];
-                for (int j = 0; j < n; j++) {
-                    if (j != i) {
-                        newX[i] -= A[i][j] * x[j];
-                    }
-                }
-                newX[i] /= A[i][i];
-            }
-
-            boolean stop = true;
-            for (int i = 0; i < n; i++) {
-                if (Math.abs(newX[i] - x[i]) > epsilon) {
-                    stop = false;
-                    break;
-                }
-            }
-
-            if (stop) {
-                break;
-            }
-
-            System.arraycopy(newX, 0, x, 0, n);
-           
-        }
-        return x;
-    }}
-
-
-
-![e3](https://github.com/Hante990/Tema-3/assets/107586879/758c3cb5-95bd-435c-b3a8-a858556487f9)
-
-
-
-
-<h5> <font font face = "arial"> <b> <i> Ejemplo 4: </i> </b> </h5>
-package gausseseidel;
-
-public class GausseSeidel4 {
-
-    public static void main(String[] args) {
-        double[][] A = {
-            {1, 7, 2},
-            {3, 5, 6},
-            {3, 4, 8}
-        };
-        double[] b = {2, -1,7};
-        double[] x = gaussSeidel(A, b);
-        for (int i = 0; i < x.length; i++) {
-            System.out.println("x[" + i + "] = " + x[i]);
-        }
-    }
-
-    public static double[] gaussSeidel(double[][] A, double[] b) {
-        int n = A.length;
-        double[] x = new double[n];
-        double[] newX = new double[n];
-        int max = 100;
-        double epsilon = 1e-50;
-
-        for (int iter = 0; iter < max; iter++) {
-            for (int i = 0; i < n; i++) {
-                newX[i] = b[i];
-                for (int j = 0; j < n; j++) {
-                    if (j != i) {
-                        newX[i] -= A[i][j] * x[j];
-                    }
-                }
-                newX[i] /= A[i][i];
-            }
-
-            boolean stop = true;
-            for (int i = 0; i < n; i++) {
-                if (Math.abs(newX[i] - x[i]) > epsilon) {
-                    stop = false;
-                    break;
-                }
-            }
-
-            if (stop) {
-                break;
-            }
-
-            System.arraycopy(newX, 0, x, 0, n);
-           
-        }
-        return x;
-    }}
-
-
-![e4](https://github.com/Hante990/Tema-3/assets/107586879/f20b688e-d5cb-4dc8-8547-45114649fd31)
-
-
-    
-
-<h5> <font font face = "arial"> <b> <i> Ejemplo 5: </i> </b> </h5>
-package gausseseidel;
-
-public class GausseSeidel5 {
-
-    public static void main(String[] args) {
-        double[][] A = {
-            {2, 1, 4},
-            {9, 5, 2},
-            {7, 1, 6}
-        };
-        double[] b = {9,6,3};
-        double[] x = gaussSeidel(A, b);
-        for (int i = 0; i < x.length; i++) {
-            System.out.println("x[" + i + "] = " + x[i]);
-        }
-    }
-
-    public static double[] gaussSeidel(double[][] A, double[] b) {
-        int n = A.length;
-        double[] x = new double[n];
-        double[] newX = new double[n];
-        int max = 100;
-        double epsilon = 1e-50;
-
-        for (int iter = 0; iter < max; iter++) {
-            for (int i = 0; i < n; i++) {
-                newX[i] = b[i];
-                for (int j = 0; j < n; j++) {
-                    if (j != i) {
-                        newX[i] -= A[i][j] * x[j];
-                    }
-                }
-                newX[i] /= A[i][i];
-            }
-
-            boolean stop = true;
-            for (int i = 0; i < n; i++) {
-                if (Math.abs(newX[i] - x[i]) > epsilon) {
-                    stop = false;
-                    break;
-                }
-            }
-
-            if (stop) {
-                break;
-            }
-
-            System.arraycopy(newX, 0, x, 0, n);
-           
-        }
-        return x;
-    }}
-
-
-
-![e5](https://github.com/Hante990/Tema-3/assets/107586879/ba4fc671-7e49-4b86-9396-c08d3811c685)
-
-
-
 
     
 <h2 align = "center"> <font font face = "forte"> <a name="Jacobi">  4. Jacobi </h2></a>
@@ -881,337 +283,79 @@ D y dos matrices complementarias L y U, de forma que = ++A=D+L+U, donde:</li>
 <h5>Obtencion de soluciones:</h5> <li>Las soluciones aproximadas obtenidas en la última iteración se consideran como las soluciones del sistema de ecuaciones lineales.</li>
    
 <h5> <font font face = "arial"> <b> <i> Ejemplo 1: </i> </b> </h5>
-public class JacobiMethod {
-    public static final double EPSILON = 0.0001;
-   public static final int MAX_ITERATIONS = 100;
 
-    public static void main(String[] args) {
-        double[][] coefficients = {{5, 1, 1}, {1, 4, 1}, {2, 1, 3}}; 
-        double[] constants = {10, 11, 12}; 
-
-        double[] solution = solveJacobi(coefficients, constants);
-        
-        System.out.println("Solución encontrada:");
-        for (int i = 0; i < solution.length; i++) {
-            System.out.println("x" + (i + 1) + " = " + solution[i]);
+    package Jacobi;
+    
+    /**
+     *
+     * @author tono_
+     */
+    public class ejercicio1 {
+    
+         public static final double EPSILON = 0.0001;
+        public static final int MAX_ITERATIONS = 100;
+    
+        public static void main(String[] args) {
+            double[][] coefficients = {{3, -1, 1}, {2, 4, -1}, {-1, 2, 5}};
+            double[] constants = {4, 1, 1}; 
+            double[] solution = solveJacobi(coefficients, constants);
+            
+            System.out.println("Solución encontrada:");
+            for (int i = 0; i < solution.length; i++) {
+                System.out.println("x" + (i + 1) + " = " + solution[i]);
+            }
+        }
+    
+        public static double[] solveJacobi(double[][] coefficients, double[] constants) {
+            int n = constants.length;
+            double[] solution = new double[n];
+            double[] nextSolution = new double[n];
+            int iterations = 0;
+            boolean converged = false;
+    
+            while (!converged && iterations < MAX_ITERATIONS) {
+                for (int i = 0; i < n; i++) {
+                    double sum = constants[i];
+                    for (int j = 0; j < n; j++) {
+                        if (j != i) {
+                            sum -= coefficients[i][j] * solution[j];
+                        }
+                    }
+                    nextSolution[i] = sum / coefficients[i][i];
+                }
+    
+                double maxDifference = 0.0;
+                for (int i = 0; i < n; i++) {
+                    double difference = Math.abs(nextSolution[i] - solution[i]);
+                    if (difference > maxDifference) {
+                        maxDifference = difference;
+                    }
+                }
+    
+                if (maxDifference < EPSILON) {
+                    converged = true;
+                }
+    
+                for (int i = 0; i < n; i++) {
+                    solution[i] = nextSolution[i];
+                }
+    
+                iterations++;
+            }
+    
+            if (iterations == MAX_ITERATIONS) {
+                System.out.println("El método no converge después de " + MAX_ITERATIONS + " iteraciones.");
+            }
+    
+            return solution;
         }
     }
 
-    public static double[] solveJacobi(double[][] coefficients, double[] constants) {
-        int n = constants.length;
-        double[] solution = new double[n];
-        double[] nextSolution = new double[n];
-        int iterations = 0;
-        boolean converged = false;
 
-        while (!converged && iterations < MAX_ITERATIONS) {
-            for (int i = 0; i < n; i++) {
-                double sum = constants[i];
-                for (int j = 0; j < n; j++) {
-                    if (j != i) {
-                        sum -= coefficients[i][j] * solution[j];
-                    }
-                }
-                nextSolution[i] = sum / coefficients[i][i];
-            }
-
-            double maxDifference = 0.0;
-            for (int i = 0; i < n; i++) {
-                double difference = Math.abs(nextSolution[i] - solution[i]);
-                if (difference > maxDifference) {
-                    maxDifference = difference;
-                }
-            }
-
-            if (maxDifference < EPSILON) {
-                converged = true;
-            }
-
-            for (int i = 0; i < n; i++) {
-                solution[i] = nextSolution[i];
-            }
-
-            iterations++;
-        }
-
-        if (iterations == MAX_ITERATIONS) {
-            System.out.println("El método no converge después de " + MAX_ITERATIONS + " iteraciones.");
-        }
-
-        return solution;
-    }}
-
-
-
-![ee1](https://github.com/Hante990/Tema-3/assets/107586879/68e40cb6-5a78-4667-a24c-0378d8c6f12e)
-
+![Captura de pantalla 2024-05-30 230853](https://github.com/AntonioGuerrer0/Problemario_TEMA_3/assets/161759650/c0a992a2-95d0-4b6d-a90f-b1c3038aec55)
 
     
-<h5> <font font face = "arial"> <b> <i> Ejemplo 2: </i> </b> </h5>
-public class JacobiMethod {
-    public static final double EPSILON = 0.0001;
-    public static final int MAX_ITERATIONS = 100;
 
-    public static void main(String[] args) {
-        double[][] coefficients = {{4, -1, 0}, {-1, 4, -1}, {0, -1, 3}}; 
-        double[] constants = {5, -7, 6}; 
-
-        double[] solution = solveJacobi(coefficients, constants);
-        
-        System.out.println("Solución encontrada:");
-        for (int i = 0; i < solution.length; i++) {
-            System.out.println("x" + (i + 1) + " = " + solution[i]);
-        }
-    }
-
-    public static double[] solveJacobi(double[][] coefficients, double[] constants) {
-        int n = constants.length;
-        double[] solution = new double[n];
-        double[] nextSolution = new double[n];
-        int iterations = 0;
-        boolean converged = false;
-
-        while (!converged && iterations < MAX_ITERATIONS) {
-            for (int i = 0; i < n; i++) {
-                double sum = constants[i];
-                for (int j = 0; j < n; j++) {
-                    if (j != i) {
-                        sum -= coefficients[i][j] * solution[j];
-                    }
-                }
-                nextSolution[i] = sum / coefficients[i][i];
-            }
-
-            double maxDifference = 0.0;
-            for (int i = 0; i < n; i++) {
-                double difference = Math.abs(nextSolution[i] - solution[i]);
-                if (difference > maxDifference) {
-                    maxDifference = difference;
-                }
-            }
-
-            if (maxDifference < EPSILON) {
-                converged = true;
-            }
-
-            for (int i = 0; i < n; i++) {
-                solution[i] = nextSolution[i];
-            }
-
-            iterations++;
-        }
-
-        if (iterations == MAX_ITERATIONS) {
-            System.out.println("El método no converge después de " + MAX_ITERATIONS + " iteraciones.");
-        }
-
-        return solution;
-    }}
-
-
-
-![ee2](https://github.com/Hante990/Tema-3/assets/107586879/3ec8cab9-5632-4255-9534-3d542ecb27ea)
-
-
-    
-<h5> <font font face = "arial"> <b> <i> Ejemplo 3: </i> </b> </h5>
-public class JacobiMethod {
-    public static final double EPSILON = 0.0001;
-    public static final int MAX_ITERATIONS = 100;
-
-    public static void main(String[] args) {
-        double[][] coefficients = {{3, 1, 1}, {2, 5, 1}, {1, 1, 4}}; 
-        double[] constants = {5, 6, 7}; 
-        double[] solution = solveJacobi(coefficients, constants);
-        
-        System.out.println("Solución encontrada:");
-        for (int i = 0; i < solution.length; i++) {
-            System.out.println("x" + (i + 1) + " = " + solution[i]);
-        }
-    }
-
-    public static double[] solveJacobi(double[][] coefficients, double[] constants) {
-        int n = constants.length;
-        double[] solution = new double[n];
-        double[] nextSolution = new double[n];
-        int iterations = 0;
-        boolean converged = false;
-
-        while (!converged && iterations < MAX_ITERATIONS) {
-            for (int i = 0; i < n; i++) {
-                double sum = constants[i];
-                for (int j = 0; j < n; j++) {
-                    if (j != i) {
-                        sum -= coefficients[i][j] * solution[j];
-                    }
-                }
-                nextSolution[i] = sum / coefficients[i][i];
-            }
-
-            double maxDifference = 0.0;
-            for (int i = 0; i < n; i++) {
-                double difference = Math.abs(nextSolution[i] - solution[i]);
-                if (difference > maxDifference) {
-                    maxDifference = difference;
-                }
-            }
-
-            if (maxDifference < EPSILON) {
-                converged = true;
-            }
-
-            for (int i = 0; i < n; i++) {
-                solution[i] = nextSolution[i];
-            }
-
-            iterations++;
-        }
-
-        if (iterations == MAX_ITERATIONS) {
-            System.out.println("El método no converge después de " + MAX_ITERATIONS + " iteraciones.");
-        }
-
-        return solution;
-    }}
-
-
-![ee3](https://github.com/Hante990/Tema-3/assets/107586879/276fab49-748c-4641-af03-8c3b21f326ec)
-
-
-
-    
-<h5> <font font face = "arial"> <b> <i> Ejemplo 4: </i> </b> </h5>
-public class JacobiMethod {
-    public static final double EPSILON = 0.0001;
-    public static final int MAX_ITERATIONS = 100;
-
-    public static void main(String[] args) {
-        double[][] coefficients = {{4, -1, 0}, {-1, 5, -1}, {0, -1, 3}};
-        double[] constants = {8, -3, 6}; 
-        double[] solution = solveJacobi(coefficients, constants);
-        
-        System.out.println("Solución encontrada:");
-        for (int i = 0; i < solution.length; i++) {
-            System.out.println("x" + (i + 1) + " = " + solution[i]);
-        }
-    }
-
-    public static double[] solveJacobi(double[][] coefficients, double[] constants) {
-        int n = constants.length;
-        double[] solution = new double[n];
-        double[] nextSolution = new double[n];
-        int iterations = 0;
-        boolean converged = false;
-
-        while (!converged && iterations < MAX_ITERATIONS) {
-            for (int i = 0; i < n; i++) {
-                double sum = constants[i];
-                for (int j = 0; j < n; j++) {
-                    if (j != i) {
-                        sum -= coefficients[i][j] * solution[j];
-                    }
-                }
-                nextSolution[i] = sum / coefficients[i][i];
-            }
-
-            double maxDifference = 0.0;
-            for (int i = 0; i < n; i++) {
-                double difference = Math.abs(nextSolution[i] - solution[i]);
-                if (difference > maxDifference) {
-                    maxDifference = difference;
-                }
-            }
-
-            if (maxDifference < EPSILON) {
-                converged = true;
-            }
-
-            for (int i = 0; i < n; i++) {
-                solution[i] = nextSolution[i];
-            }
-
-            iterations++;
-        }
-
-        if (iterations == MAX_ITERATIONS) {
-            System.out.println("El método no converge después de " + MAX_ITERATIONS + " iteraciones.");
-        }
-
-        return solution;
-    }}
-
-
-![ee4](https://github.com/Hante990/Tema-3/assets/107586879/b2875573-1064-4780-8b5a-ced76725dca7)
-
-
-    
-<h5> <font font face = "arial"> <b> <i> Ejemplo 5: </i> </b> </h5>
-public class JacobiMethod {
-    public static final double EPSILON = 0.0001;
-    public static final int MAX_ITERATIONS = 100;
-
-    public static void main(String[] args) {
-        double[][] coefficients = {{2, -1, 0}, {-1, 2, -1}, {0, -1, 2}}; 
-        double[] constants = {1, 0, 1}; 
-
-        double[] solution = solveJacobi(coefficients, constants);
-        
-        System.out.println("Solución encontrada:");
-        for (int i = 0; i < solution.length; i++) {
-            System.out.println("x" + (i + 1) + " = " + solution[i]);
-        }
-    }
-
-    public static double[] solveJacobi(double[][] coefficients, double[] constants) {
-        int n = constants.length;
-        double[] solution = new double[n];
-        double[] nextSolution = new double[n];
-        int iterations = 0;
-        boolean converged = false;
-
-        while (!converged && iterations < MAX_ITERATIONS) {
-            for (int i = 0; i < n; i++) {
-                double sum = constants[i];
-                for (int j = 0; j < n; j++) {
-                    if (j != i) {
-                        sum -= coefficients[i][j] * solution[j];
-                    }
-                }
-                nextSolution[i] = sum / coefficients[i][i];
-            }
-
-            double maxDifference = 0.0;
-            for (int i = 0; i < n; i++) {
-                double difference = Math.abs(nextSolution[i] - solution[i]);
-                if (difference > maxDifference) {
-                    maxDifference = difference;
-                }
-            }
-
-            if (maxDifference < EPSILON) {
-                converged = true;
-            }
-
-            for (int i = 0; i < n; i++) {
-                solution[i] = nextSolution[i];
-            }
-
-            iterations++;
-        }
-
-        if (iterations == MAX_ITERATIONS) {
-            System.out.println("El método no converge después de " + MAX_ITERATIONS + " iteraciones.");
-        }
-
-        return solution;
-    }}
-
-
-
-
-
-
-![ee5](https://github.com/Hante990/Tema-3/assets/107586879/19658622-1d53-44ed-9891-412fe75136ba)
 
     
 
